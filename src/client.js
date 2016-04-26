@@ -18,6 +18,11 @@ const history = useScroll(() => browserHistory)();
 const dest = document.getElementById('content');
 const store = createStore(history, client, window.__data);
 
+window['optimizely'] = window['optimizely'] || [];
+window['optimizely'].push(["activate", "5750250113"]);
+
+//alert(window.optimizely.data.variations[""])
+
 const component = (
   <Router render={(props) =>
         <ReduxAsyncConnect {...props} helpers={{client}} filter={item => !item.deferred} />
