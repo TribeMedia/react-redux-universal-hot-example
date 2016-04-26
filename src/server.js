@@ -24,8 +24,16 @@ const app = new Express();
 const server = new http.Server(app);
 const proxy = httpProxy.createProxyServer({
   target: targetUrl,
-  ws: true
+  ws: false
 });
+
+var optimizely = require('optimizely-node')('3459bf907013919157a6297d5bef509e:bc70d749');
+optimizely.projects.fetch('5662157414').then(function(projectData) {
+  console.info('got project data: ', projectData)
+}, function (err) {
+  // error in optimizely load...
+  console.error(err);
+})
 
 app.use(compression());
 app.use(favicon(path.join(__dirname, '..', 'static', 'favicon.ico')));
@@ -35,14 +43,6 @@ app.use(Express.static(path.join(__dirname, '..', 'static')));
 // Proxy to API server
 app.use('/api', (req, res) => {
   proxy.web(req, res, {target: targetUrl});
-});
-
-app.use('/ws', (req, res) => {
-  proxy.web(req, res, {target: targetUrl + '/ws'});
-});
-
-server.on('upgrade', (req, socket, head) => {
-  proxy.ws(req, socket, head);
 });
 
 // added the error handling to avoid https://github.com/nodejitsu/node-http-proxy/issues/527
