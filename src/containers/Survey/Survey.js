@@ -19,7 +19,7 @@ export default class Survey extends Component {
 
   handleInitialize = () => {
     this.props.initialize('survey', {
-      name: 'Little Bobby Tables',
+      name: window.myvar,
       email: 'bobby@gmail.com',
       occupation: 'Redux Wizard',
       currentlyEmployed: true,
