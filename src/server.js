@@ -70,6 +70,8 @@ app.use((req, res) => {
 
   const store = createStore(history, client);
 
+  req.optimizely = optimizely;
+
   function hydrateOnClient() {
     res.send('<!doctype html>\n' +
       ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} store={store}/>));

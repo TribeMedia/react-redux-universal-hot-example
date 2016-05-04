@@ -25,6 +25,8 @@ export default class Survey extends Component {
       currentlyEmployed: true,
       sex: 'male'
     });
+
+    window.optimizely.push(["trackEvent", "initSurvey"]);
   }
 
   render() {
