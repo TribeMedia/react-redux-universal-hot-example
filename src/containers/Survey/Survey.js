@@ -14,12 +14,12 @@ export default class Survey extends Component {
   }
 
   handleSubmit = (data) => {
-    window.optimizely.push(['trackEvent', 'saveSurvey']);
-    /*request.get('https://5662157414.log.optimizely.com/event?a=5662157414&d=5662157414&y=false&src=js&s5692111775=gc&s5697131616=false&s5688002034=direct&tsent=1462367147.538&n=saveSurvey&u=oeu1462367115866r0.9819769772170281&wxhr=true&time=1462367147.538&f=5750250113&g=5824140674&cx2=3632d2e0')
+    /*window.optimizely.push(['trackEvent', 'saveSurvey']);*/
+    request.get('https://5662157414.log.optimizely.com/event?a=5662157414&d=5662157414&y=false&src=js&x5750250113=5759140016&s5692111775=gc&s5697131616=false&s5688002034=direct&tsent=1462369819.279&n=saveSurvey&u=oeu1462367115866r0.9819769772170281&wxhr=true&time=1462369819.279&f=5750250113&g=5826340299&cx2=255f22b5')
       .end(function(err, res) {
         window.alert('Data submitted! ' + JSON.stringify(data));
         this.props.initialize('survey', {});
-      });*/
+      });
   }
 
   handleInitialize = () => {
