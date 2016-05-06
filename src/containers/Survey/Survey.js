@@ -5,6 +5,19 @@ import {initialize} from 'redux-form';
 import {SurveyForm} from 'components';
 import request from 'superagent';
 
+@asyncConnect({
+  buttonColors: (params, helpers) => {
+    if (!window.initColor) {
+      request.get('http://planout.tribemedia.io/parameters?user_guid=anonymous').end(function(err, res) {
+        window.initColor = res.body.init_color.value;
+        window.saveColor = res.body.save_color.value;
+        Promise.resolve({initColor: window.initColor, saveColor: window.saveColor});
+      });
+    } else {
+      Promise.resolve({initColor: window.initColor, saveColor: window.saveColor});
+    }
+  }
+})
 @connect(
   () => ({}),
   {initialize})
@@ -87,7 +100,7 @@ export default class Survey extends Component {
         </p>
 
         <div style={{textAlign: 'center', margin: 15}}>
-          <button className="btn btn-primary" onClick={this.handleInitialize}>
+          <button className="btn btn-primary" color={buttonColors.initColor} onClick={this.handleInitialize}>
             <i className="fa fa-pencil"/> Initialize Form
           </button>
         </div>

@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as authActions from 'redux/modules/auth';
+import request from 'superagent';
 
 @connect(
     state => ({user: state.auth.user}),
@@ -14,6 +15,12 @@ class LoginSuccess extends Component {
 
   render() {
     const {user, logout} = this.props;
+
+    request.get('http://planout.tribemedia.io/parameters?user_guid=' + user.name).end(function(err, res) {
+      window.initColor = res.body.init_color.value;
+      window.saveColor = res.body.save_color.value;
+    });
+
     return (user &&
       <div className="container">
         <h1>Login Success</h1>

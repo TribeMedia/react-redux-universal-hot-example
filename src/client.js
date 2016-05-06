@@ -10,6 +10,7 @@ import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { ReduxAsyncConnect } from 'redux-async-connect';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
+import request from 'superagent';
 
 import getRoutes from './routes';
 
@@ -20,6 +21,14 @@ const store = createStore(history, client, window.__data);
 
 window.optimizely = window.optimizely || [];
 window.optimizely.push(['activate', '5750250113']);
+
+window.initColor = "#000000";
+window.saveColor = "#000000";
+
+request.get('http://planout.tribemedia.io/parameters?user_guid=anonymous').end(function(err, res) {
+  window.initColor = res.body.init_color.value;
+  window.saveColor = res.body.save_color.value;
+});
 
 const component = (
   <Router render={(props) =>
