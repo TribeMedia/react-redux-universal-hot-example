@@ -6,7 +6,7 @@ import {SurveyForm} from 'components';
 import request from 'superagent';
 import { asyncConnect } from 'redux-async-connect';
 
-@asyncConnect({
+/*@asyncConnect({
   buttonColors: (params, helpers) => {
     if (!window.initColor) {
       request.get('http://planout.tribemedia.io/parameters?user_guid=anonymous').end(function(err, res) {
@@ -18,7 +18,7 @@ import { asyncConnect } from 'redux-async-connect';
       Promise.resolve({initColor: window.initColor, saveColor: window.saveColor});
     }
   }
-})
+})*/
 @connect(
   () => ({}),
   {initialize})
@@ -69,6 +69,8 @@ export default class Survey extends Component {
   }
 
   render() {
+    const buttonColors = {initColor: window.initColor, saveColor: window.saveColor };
+
     return (
       <div className="container">
         <h1>Survey</h1>
