@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import {initialize} from 'redux-form';
 import {SurveyForm} from 'components';
 import request from 'superagent';
+import { asyncConnect } from 'redux-async-connect';
 
 @asyncConnect({
   buttonColors: (params, helpers) => {
