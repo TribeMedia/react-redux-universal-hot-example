@@ -103,7 +103,7 @@ export default class Survey extends Component {
         </p>
 
         <div style={{textAlign: 'center', margin: 15}}>
-          <button className="btn btn-primary" color={buttonColors.initColor} onClick={this.handleInitialize}>
+          <button className="btn btn-primary" style={{backgroundColor: window.initColor }} onClick={this.handleInitialize}>
             <i className="fa fa-pencil"/> Initialize Form
           </button>
         </div>
