@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import {initialize} from 'redux-form';
 import {SurveyForm} from 'components';
 import request from 'superagent';
-import { asyncConnect } from 'redux-async-connect';
+//import { asyncConnect } from 'redux-async-connect';
 
 /*@asyncConnect({
   buttonColors: (params, helpers) => {
@@ -69,7 +69,7 @@ export default class Survey extends Component {
   }
 
   render() {
-    const buttonColors = {initColor: window.initColor, saveColor: window.saveColor };
+    const buttonColors = { initColor: window.initColor, saveColor: window.saveColor };
 
     return (
       <div className="container">
