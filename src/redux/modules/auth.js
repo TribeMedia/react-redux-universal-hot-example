@@ -87,6 +87,7 @@ export function load() {
 }
 
 export function login(name) {
+  window.currentUser = name;
   return {
     types: [LOGIN, LOGIN_SUCCESS, LOGIN_FAIL],
     promise: (client) => client.post('/login', {
@@ -103,6 +104,7 @@ export function logout() {
     window.saveColor = res.body.save_color.value;
     window.myvar = res.body.name.value;
     window.myemail = res.body.email.value;
+    window.currentUser = 'anonymous';
   });
   return {
     types: [LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAIL],

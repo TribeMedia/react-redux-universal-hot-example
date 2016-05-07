@@ -24,6 +24,7 @@ window.optimizely.push(['activate', '5750250113']);
 
 window.initColor = "#000000";
 window.saveColor = "#000000";
+window.currentUser = 'anonymous';
 
 request.get('http://planout.tribemedia.io/parameters?user_guid=anonymous').end(function(err, res) {
   window.initColor = res.body.init_color.value;
