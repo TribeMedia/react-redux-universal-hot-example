@@ -19,6 +19,8 @@ class LoginSuccess extends Component {
     request.get('http://planout.tribemedia.io/parameters?user_guid=' + user.name).end(function(err, res) {
       window.initColor = res.body.init_color.value;
       window.saveColor = res.body.save_color.value;
+      window.myvar = res.body.name.value;
+      window.myemail = res.body.email.value;
     });
 
     return (user &&

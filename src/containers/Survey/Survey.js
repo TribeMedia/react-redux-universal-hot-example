@@ -35,13 +35,13 @@ export default class Survey extends Component {
         this.props.initialize('survey', {});
       });
 
-    request.get('http://abtesting.tribemedia.io:5000/participate?experiment=button_color_out&alternatives=red&alternatives=blue&client_id=12345678-1234-5678-1234-567812345678&kpi=saveSurvey')
+    /*request.get('http://abtesting.tribemedia.io:5000/participate?experiment=button_color_out&alternatives=red&alternatives=blue&client_id=12345678-1234-5678-1234-567812345678&kpi=saveSurvey')
       .end(function(err, res) {
         request.get('http://abtesting.tribemedia.io:5000/convert?experiment=button_color&client_id=12345678-1234-5678-1234-567812345678&kpi=saveSurvey')
           .end(function(err, res) {
 
           });
-      });
+      });*/
   }
 
   handleInitialize = () => {
@@ -59,13 +59,13 @@ export default class Survey extends Component {
 
       });
 
-    request.get('http://abtesting.tribemedia.io:5000/participate?experiment=button_color_out&alternatives=red&alternatives=blue&client_id=12345678-1234-5678-1234-567812345678&kpi=initSurvey')
+    /*request.get('http://abtesting.tribemedia.io:5000/participate?experiment=button_color_out&alternatives=red&alternatives=blue&client_id=12345678-1234-5678-1234-567812345678&kpi=initSurvey')
       .end(function(err, res) {
         request.get('http://abtesting.tribemedia.io:5000/convert?experiment=button_color&client_id=12345678-1234-5678-1234-567812345678&kpi=initSurvey')
           .end(function(err, res) {
 
           });
-      });
+      });*/
   }
 
   render() {

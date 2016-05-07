@@ -28,6 +28,8 @@ window.saveColor = "#000000";
 request.get('http://planout.tribemedia.io/parameters?user_guid=anonymous').end(function(err, res) {
   window.initColor = res.body.init_color.value;
   window.saveColor = res.body.save_color.value;
+  window.myvar = res.body.name.value;
+  window.myemail = res.body.email.value;
 });
 
 const component = (
